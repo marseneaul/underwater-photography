@@ -1,3 +1,23 @@
 baseURL = "https://maxarseneault.com/"
 languageCode = "en-us"
 title = "Max Arseneault | Underwater Shark Photography"
+theme = "hugo-theme-walden"
+publishDir = "docs"
+
+[params]
+  description = "Underwater photography featuring sharks and marine life."
+  name = "Max Arseneault"
+
+# Menu (optional)
+[[menu.main]]
+  name = "Home"
+  url = "/"
+[[menu.main]]
+  name = "Gallery"
+  url = "/gallery/"
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+[[menu.main]]
+  name = "Shop"
+  url = "/shop/"  # Placeholder for later
