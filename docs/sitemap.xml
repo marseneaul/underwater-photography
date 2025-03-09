@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:51819/</loc>
+    <loc>https://maxarseneault.com/</loc>
     <lastmod>2025-03-07T22:13:44-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:51819/photos/</loc>
+    <loc>https://maxarseneault.com/photos/</loc>
     <lastmod>2025-03-07T22:13:44-05:00</lastmod>
   </url><url>
-    <loc>http://localhost:51819/categories/</loc>
+    <loc>https://maxarseneault.com/categories/</loc>
   </url><url>
-    <loc>http://localhost:51819/tags/</loc>
+    <loc>https://maxarseneault.com/tags/</loc>
   </url>
 </urlset>
