@@ -1,0 +1,961 @@
+/*
+ * Deep Technical — Underwater Photography
+ * A refined, deliberate aesthetic inspired by fine-line illustration,
+ * technical precision, and the depths of the ocean.
+ */
+
+/* ============================================
+   Font Import — Clean, technical typefaces
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* ============================================
+   CSS Variables — Ink & Silver Palette
+   ============================================ */
+:root {
+  /* Deep ink backgrounds */
+  --ink-black: #08090c;
+  --ink-deep: #0d1117;
+  --ink-mid: #151b23;
+  --ink-light: #1e252f;
+
+  /* Silver accents */
+  --silver: #8b949e;
+  --silver-bright: #c9d1d9;
+  --platinum: #e6edf3;
+
+  /* Subtle ocean undertones */
+  --ocean-whisper: rgba(56, 139, 172, 0.08);
+  --ocean-hint: #388bac;
+  --ocean-glow: rgba(56, 139, 172, 0.15);
+
+  /* Functional */
+  --white: #ffffff;
+  --border: rgba(139, 148, 158, 0.15);
+  --border-hover: rgba(139, 148, 158, 0.3);
+  --overlay: rgba(8, 9, 12, 0.95);
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+  --space-2xl: 8rem;
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--ink-black);
+  color: var(--silver-bright);
+  line-height: 1.7;
+  min-height: 100vh;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--ocean-hint);
+  color: var(--white);
+}
+
+/* ============================================
+   Typography — Editorial precision
+   ============================================ */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--platinum);
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
+}
+
+h2 {
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+h4 {
+  font-size: 0.875rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--silver);
+}
+
+p {
+  margin-bottom: var(--space-md);
+  color: var(--silver);
+}
+
+a {
+  color: var(--silver-bright);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--ocean-hint);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   Layout
+   ============================================ */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+section {
+  padding: var(--space-2xl) 0;
+}
+
+/* ============================================
+   Header & Navigation — Minimal, precise
+   ============================================ */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: var(--space-lg) 0;
+  transition: all 0.3s ease;
+}
+
+header.scrolled {
+  background: rgba(8, 9, 12, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.logo {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--platinum);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.logo-icon {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: var(--space-xl);
+}
+
+.nav-links a {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--silver);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: var(--space-sm) 0;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--ocean-hint);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--platinum);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* Mobile Menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: var(--space-sm);
+  background: none;
+  border: none;
+}
+
+.menu-toggle span {
+  width: 20px;
+  height: 1px;
+  background: var(--platinum);
+  transition: 0.3s ease;
+}
+
+/* ============================================
+   Hero — Dramatic, considered
+   ============================================ */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: var(--ink-black);
+  overflow: hidden;
+}
+
+/* Subtle grid pattern overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 100px 100px;
+  opacity: 0.3;
+}
+
+/* Radial glow */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, var(--ocean-whisper) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  padding: var(--space-lg);
+}
+
+.hero h1 {
+  margin-bottom: var(--space-lg);
+  font-style: italic;
+}
+
+.hero p {
+  font-size: 1.125rem;
+  color: var(--silver);
+  margin-bottom: var(--space-xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.hero-subtitle {
+  font-family: var(--font-sans);
+  color: var(--ocean-hint);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  margin-bottom: var(--space-lg);
+  font-weight: 500;
+}
+
+/* ============================================
+   Buttons — Refined, minimal
+   ============================================ */
+.btn {
+  display: inline-block;
+  padding: 0.875rem 2.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-hover);
+  background: transparent;
+  color: var(--platinum);
+}
+
+.btn:hover {
+  border-color: var(--ocean-hint);
+  color: var(--ocean-hint);
+}
+
+.btn-primary {
+  background: transparent;
+  border-color: var(--platinum);
+}
+
+.btn-primary:hover {
+  background: var(--platinum);
+  color: var(--ink-black);
+}
+
+.btn-outline {
+  background: transparent;
+}
+
+/* ============================================
+   Section Headers
+   ============================================ */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.section-header h2 {
+  margin-bottom: var(--space-md);
+}
+
+.section-header p {
+  max-width: 500px;
+  margin: 0 auto;
+  font-size: 0.95rem;
+}
+
+/* Fine line separator */
+.section-header::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: var(--border-hover);
+  margin: var(--space-lg) auto 0;
+}
+
+/* ============================================
+   Photo Gallery — Clean grid
+   ============================================ */
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--silver);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  border-color: var(--platinum);
+  color: var(--platinum);
+}
+
+.gallery-grid,
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1px;
+  background: var(--border);
+}
+
+/* ============================================
+   Photo Card — Gallery aesthetic
+   ============================================ */
+.photo-card {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: var(--ink-deep);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, opacity 0.3s ease;
+  opacity: 0.9;
+}
+
+.photo-card:hover img {
+  transform: scale(1.02);
+  opacity: 1;
+}
+
+.photo-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-lg);
+  background: linear-gradient(transparent, var(--overlay));
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.photo-card:hover .photo-card-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-card-overlay h3 {
+  color: var(--platinum);
+  margin-bottom: var(--space-xs);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.photo-card-overlay .category {
+  color: var(--ocean-hint);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+/* ============================================
+   Modal — Lightbox style
+   ============================================ */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+}
+
+.modal.active {
+  display: block;
+}
+
+.modal-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.modal-image {
+  position: relative;
+  max-width: calc(100% - 380px);
+  max-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+}
+
+.modal-image img {
+  max-width: 100%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+}
+
+.modal-details {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 340px;
+  height: 100vh;
+  background: var(--ink-deep);
+  border-left: 1px solid var(--border);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.modal-close {
+  position: fixed;
+  top: var(--space-lg);
+  left: var(--space-lg);
+  width: 44px;
+  height: 44px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border);
+  color: var(--silver);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: var(--ink-deep);
+  border-color: var(--platinum);
+  color: var(--platinum);
+}
+
+.modal-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin-bottom: var(--space-sm);
+  margin-top: var(--space-xl);
+}
+
+.modal-category {
+  color: var(--ocean-hint);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: var(--space-lg);
+}
+
+.modal-description {
+  color: var(--silver);
+  font-size: 0.875rem;
+  line-height: 1.8;
+  margin-bottom: var(--space-lg);
+}
+
+/* ============================================
+   Purchase Options
+   ============================================ */
+.purchase-options {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-lg);
+}
+
+.purchase-options h4 {
+  margin-bottom: var(--space-md);
+}
+
+.option-group {
+  margin-bottom: var(--space-md);
+}
+
+.option-group label {
+  display: block;
+  color: var(--silver);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-sm);
+}
+
+.option-select {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--ink-mid);
+  border: 1px solid var(--border);
+  color: var(--silver-bright);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.option-select:focus {
+  outline: none;
+  border-color: var(--ocean-hint);
+}
+
+.price-display {
+  font-family: var(--font-sans);
+  font-size: 1.5rem;
+  color: var(--platinum);
+  font-weight: 300;
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.05em;
+}
+
+.btn-buy {
+  width: 100%;
+  padding: 1rem;
+}
+
+/* ============================================
+   About Section
+   ============================================ */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.about-image {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.about-image::after {
+  content: '';
+  position: absolute;
+  top: var(--space-md);
+  left: var(--space-md);
+  right: calc(var(--space-md) * -1);
+  bottom: calc(var(--space-md) * -1);
+  border: 1px solid var(--border);
+  pointer-events: none;
+}
+
+.about-text h2 {
+  margin-bottom: var(--space-lg);
+}
+
+.about-text p {
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+
+/* ============================================
+   Contact
+   ============================================ */
+.contact-container {
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  background: var(--ink-deep);
+  padding: var(--space-xl);
+  border: 1px solid var(--border);
+}
+
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--space-sm);
+  color: var(--silver);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.875rem;
+  background: var(--ink-mid);
+  border: 1px solid var(--border);
+  color: var(--silver-bright);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--ocean-hint);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* ============================================
+   Footer — Minimal
+   ============================================ */
+footer {
+  border-top: 1px solid var(--border);
+  padding: var(--space-xl) 0;
+  margin-top: var(--space-xl);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.footer-links a {
+  color: var(--silver);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.footer-links a:hover {
+  color: var(--platinum);
+}
+
+.social-links {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.social-links a {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--silver);
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+}
+
+.social-links a:hover {
+  border-color: var(--platinum);
+  color: var(--platinum);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: var(--space-xl);
+  margin-top: var(--space-xl);
+  border-top: 1px solid var(--border);
+  color: var(--silver);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   Page Header (inner pages)
+   ============================================ */
+.page-header {
+  padding: 10rem 0 var(--space-xl);
+  text-align: center;
+  position: relative;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 100px 100px;
+  opacity: 0.2;
+}
+
+.page-header h1 {
+  position: relative;
+  margin-bottom: var(--space-md);
+  font-style: italic;
+}
+
+.page-header p {
+  position: relative;
+  color: var(--silver);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 968px) {
+  .modal-content {
+    flex-direction: column;
+  }
+
+  .modal-image {
+    max-width: 100%;
+    padding: var(--space-lg);
+    padding-top: 80px;
+  }
+
+  .modal-image img {
+    max-height: 50vh;
+  }
+
+  .modal-details {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-left: none;
+    border-top: 1px solid var(--border);
+  }
+
+  .modal-title {
+    margin-top: 0;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .about-image::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --space-lg: 1.5rem;
+    --space-xl: 3rem;
+    --space-2xl: 5rem;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: var(--ink-black);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xl);
+    transition: right 0.3s ease;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+    z-index: 1001;
+  }
+
+  .gallery-grid,
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ============================================
+   Animations — Subtle, deliberate
+   ============================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+/* Initial state for elements that will animate */
+.photo-card {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease forwards;
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+.text-center { text-align: center; }
+.mt-1 { margin-top: var(--space-sm); }
+.mt-2 { margin-top: var(--space-md); }
+.mt-3 { margin-top: var(--space-lg); }
+.mb-1 { margin-bottom: var(--space-sm); }
+.mb-2 { margin-bottom: var(--space-md); }
+.mb-3 { margin-bottom: var(--space-lg); }

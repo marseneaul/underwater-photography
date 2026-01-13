@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stunning underwater photography featuring sharks, nudibranchs, and marine life. Purchase high-quality prints and digital downloads.">
+  <title>Underwater Photography | Sharks, Nudibranchs & Marine Life</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <span class="logo-icon">&#127754;</span>
+        <span>DeepBlue Photos</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-subtitle">Underwater Photography</p>
+      <h1>Capturing the Beauty Beneath the Waves</h1>
+      <p>From majestic sharks to vibrant nudibranchs, explore the hidden wonders of our oceans through my lens. Every image tells a story of the incredible marine life that thrives below the surface.</p>
+      <a href="gallery.html" class="btn btn-primary">View Gallery</a>
+    </div>
+  </section>
+
+  <!-- Featured Section -->
+  <section class="featured">
+    <div class="container">
+      <div class="section-header">
+        <h2>Featured Photos</h2>
+        <p>A selection of my favorite underwater captures, available as prints or digital downloads.</p>
+      </div>
+      <div class="featured-grid">
+        <!-- Featured Photo 1 -->
+        <div class="photo-card" data-id="3" data-category="sharks">
+          <img src="images/sharks/cephaloscyllium-umbratile-web.jpg" alt="Blotchy Swellshark (Sphyrna mokarran)" onerror="this.style.background='linear-gradient(135deg, #1a3a5c, #0d2137)'; this.style.minHeight='225px'">
+          <div class="photo-card-overlay">
+            <h3>Blotchy Swellshark</h3>
+            <span class="category">Sharks</span>
+          </div>
+        </div>
+
+        <!-- Featured Photo 2 -->
+        <div class="photo-card" data-id="4" data-category="sharks">
+          <img src="images/sharks/galeocerdo-cuvier.jpg" alt="Tiger Shark (Galeocerdo cuvier)" onerror="this.style.background='linear-gradient(135deg, #1a3a5c, #0d2137)'; this.style.minHeight='225px'">
+          <div class="photo-card-overlay">
+            <h3>Tiger Shark</h3>
+            <span class="category">Sharks</span>
+          </div>
+        </div>
+
+        <!-- Featured Photo 3 -->
+        <div class="photo-card" data-id="2" data-category="sharks">
+          <img src="images/sharks/sphyrna-mokarran.jpg" alt="Great Hammerhead (Sphyrna mokarran)" onerror="this.style.background='linear-gradient(135deg, var(--ocean-mid), var(--ocean-dark))'; this.alt='Photo coming soon'">
+          <div class="photo-card-overlay">
+            <h3>Great Hammerhead</h3>
+            <span class="category">Sharks</span>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <a href="gallery.html" class="btn btn-outline">View All Photos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="about-preview">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-image">
+          <img src="images/about-placeholder.jpg" alt="Photographer underwater" onerror="this.style.background='linear-gradient(135deg, var(--ocean-mid), var(--ocean-dark))'; this.style.minHeight='300px'">
+        </div>
+        <div class="about-text">
+          <h2>The Photographer</h2>
+          <p>With years of experience diving in oceans around the world, I've dedicated my life to documenting the incredible creatures that call the sea their home.</p>
+          <p>From the powerful presence of sharks to the delicate beauty of nudibranchs, each photograph represents hours of patience, planning, and a deep respect for marine life.</p>
+          <a href="about.html" class="btn btn-outline">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Modal -->
+  <div class="modal" id="photoModal">
+    <button class="modal-close" aria-label="Close">&times;</button>
+    <div class="modal-content">
+      <div class="modal-image">
+        <img src="" alt="" id="modalImage">
+      </div>
+      <div class="modal-details">
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <span class="modal-category" id="modalCategory"></span>
+        <p class="modal-description" id="modalDescription"></p>
+
+        <div class="purchase-options">
+          <h4>Purchase Options</h4>
+
+          <div class="option-group">
+            <label for="productType">Product Type</label>
+            <select id="productType" class="option-select">
+              <option value="digital">Digital Download</option>
+              <option value="print">Physical Print</option>
+            </select>
+          </div>
+
+          <div class="option-group" id="digitalOptions">
+            <label for="digitalSize">Resolution</label>
+            <select id="digitalSize" class="option-select">
+              <option value="web" data-price="15">Web Resolution (1920px) - $15</option>
+              <option value="standard" data-price="35">Standard (4000px) - $35</option>
+              <option value="full" data-price="75">Full Resolution - $75</option>
+            </select>
+          </div>
+
+          <div class="option-group" id="printOptions" style="display: none;">
+            <label for="printSize">Print Size</label>
+            <select id="printSize" class="option-select">
+              <option value="8x10" data-price="45">8x10" - $45</option>
+              <option value="11x14" data-price="75">11x14" - $75</option>
+              <option value="16x20" data-price="125">16x20" - $125</option>
+              <option value="24x36" data-price="225">24x36" - $225</option>
+            </select>
+          </div>
+
+          <div class="price-display">$<span id="currentPrice">15</span></div>
+
+          <button class="btn btn-primary btn-buy" id="buyButton">
+            Buy Now
+          </button>
+          <p class="mt-1" style="font-size: 0.85rem; color: var(--text-muted);">Secure checkout powered by Stripe</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="social-links">
+          <a href="#" aria-label="Instagram">&#128247;</a>
+          <a href="#" aria-label="Facebook">&#102;</a>
+          <a href="#" aria-label="Twitter">&#120;</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 DeepBlue Photos. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
