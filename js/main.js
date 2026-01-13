@@ -9,14 +9,14 @@ const photoData = {
     title: 'Tiger Shark (Galeocerdo cuvier)',
     category: 'Sharks',
     description: 'The tiger shark is named for the dark, vertical stripes found mainly on juveniles. As these sharks mature, the lines begin to fade and almost disappear. Known as the "garbage cans of the sea," tiger sharks are opportunistic feeders with a reputation for eating almost anything.',
-    image: 'images/sharks/galeocerdo-cuvier-2.jpg',
+    image: 'images/sharks/galeocerdo-cuvier-2-web.jpg',
     prices: { digital: {}, print: {} }
   },
   2: {
     title: 'Great Hammerhead (Sphyrna mokarran)',
     category: 'Sharks',
     description: 'The great hammerhead is the largest of the nine identified species of hammerhead sharks. Their distinctive head shape, called a cephalofoil, provides superior sensory capabilities and enhanced maneuverability.',
-    image: 'images/sharks/sphyrna-mokarran.jpg',
+    image: 'images/sharks/sphyrna-mokarran-web.jpg',
     prices: { digital: {}, print: {} }
   },
   3: {
@@ -30,28 +30,28 @@ const photoData = {
     title: 'Tiger Shark (Galeocerdo cuvier)',
     category: 'Sharks',
     description: 'A tiger shark cruises through the deep blue, its powerful form silhouetted against the light from above. These apex predators can grow up to 14 feet in length and are found in tropical and temperate waters worldwide.',
-    image: 'images/sharks/galeocerdo-cuvier.jpg',
+    image: 'images/sharks/galeocerdo-cuvier-web.jpg',
     prices: { digital: {}, print: {} }
   },
   5: {
     title: 'Great Hammerhead (Sphyrna mokarran)',
     category: 'Sharks',
     description: 'A great hammerhead glides effortlessly through the water column. These magnificent sharks use their uniquely shaped heads to pin stingrays, their favorite prey, against the ocean floor.',
-    image: 'images/sharks/sphyrna-mokarran-2.jpg',
+    image: 'images/sharks/sphyrna-mokarran-2-web.jpg',
     prices: { digital: {}, print: {} }
   },
   6: {
     title: 'Banded Houndshark (Triakis scyllium)',
     category: 'Sharks',
     description: 'The banded houndshark is a species of houndshark found in the northwestern Pacific Ocean. It is easily identified by its distinctive dark bands and spots, and is commonly found in shallow coastal waters.',
-    image: 'images/sharks/triakis-scyllium.jpg',
+    image: 'images/sharks/triakis-scyllium-web.jpg',
     prices: { digital: {}, print: {} }
   },
   7: {
     title: 'Tiger Shark (Galeocerdo cuvier)',
     category: 'Sharks',
     description: 'An up-close encounter with a tiger shark reveals the intricate patterns and powerful build of this remarkable predator. Tiger sharks are known for their curiosity and will often investigate divers.',
-    image: 'images/sharks/galeocerdo-cuvier-3.jpg',
+    image: 'images/sharks/galeocerdo-cuvier-3-web.jpg',
     prices: { digital: {}, print: {} }
   },
   8: {
@@ -65,7 +65,7 @@ const photoData = {
     title: 'California Horn Shark (Heterodontus francisci)',
     category: 'Sharks',
     description: 'The California horn shark is a small, bottom-dwelling shark found along the coast of California and Mexico. Named for the small horn-like spines in front of each dorsal fin, these nocturnal sharks spend their days resting in rocky crevices.',
-    image: 'images/sharks/heterodontus-francisci.jpg',
+    image: 'images/sharks/heterodontus-francisci-web.jpg',
     prices: { digital: {}, print: {} }
   },
   10: {
@@ -79,21 +79,28 @@ const photoData = {
     title: 'Yellow-Tailed Dascyllus (Dascyllus flavicaudus)',
     category: 'Other Marine Life',
     description: 'The yellow-tailed dascyllus is a species of damselfish found in the Indo-Pacific region. These small, hardy fish are often seen hovering in groups above coral heads, quickly retreating into the branches when threatened.',
-    image: 'images/other/dascyllus-flavicaudus.jpg',
+    image: 'images/other/dascyllus-flavicaudus-web.jpg',
     prices: { digital: {}, print: {} }
   },
   12: {
     title: 'Spotted Ratfish (Hydrolagus colliei)',
     category: 'Other Marine Life',
     description: 'The spotted ratfish is a chimaera found in the northeastern Pacific Ocean. Related to sharks and rays, these fascinating creatures have large emerald-green eyes that glow in the dark and a venomous spine in front of the dorsal fin.',
-    image: 'images/other/hydrolagus-colliei.jpg',
+    image: 'images/other/hydrolagus-colliei-web.jpg',
     prices: { digital: {}, print: {} }
   },
   13: {
     title: 'Regal Angelfish (Pygoplites diacanthus)',
     category: 'Other Marine Life',
     description: 'The regal angelfish is one of the most striking fish on coral reefs, with its bold stripes of blue, white, yellow, and orange. Found throughout the Indo-Pacific, these fish are often seen swimming along reef walls and caves.',
-    image: 'images/other/pygoplites-diacanthus.jpg',
+    image: 'images/other/pygoplites-diacanthus-web.jpg',
+    prices: { digital: {}, print: {} }
+  },
+  14: {
+    title: 'Giant Moray (Gymnothorax javanicus)',
+    category: 'Other Marine Life',
+    description: 'The regal angelfish is one of the most striking fish on coral reefs, with its bold stripes of blue, white, yellow, and orange. Found throughout the Indo-Pacific, these fish are often seen swimming along reef walls and caves.',
+    image: 'images/other/gymnothorax-javanicus.jpg',
     prices: { digital: {}, print: {} }
   }
 };
