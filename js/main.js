@@ -99,8 +99,8 @@ const photoData = {
   14: {
     title: 'Giant Moray (Gymnothorax javanicus)',
     category: 'Other Marine Life',
-    description: 'The regal angelfish is one of the most striking fish on coral reefs, with its bold stripes of blue, white, yellow, and orange. Found throughout the Indo-Pacific, these fish are often seen swimming along reef walls and caves.',
-    image: 'images/other/gymnothorax-javanicus.jpg',
+    description: 'The giant moray is the largest moray eel in terms of body mass, reaching up to 3 meters in length and 30 kg in weight. Found throughout the Indo-Pacific, these impressive predators hunt at night, often cooperatively with roving coral groupers.',
+    image: 'images/other/gymnothorax-javanicus-web.jpg',
     prices: { digital: {}, print: {} }
   }
 };
