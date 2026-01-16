@@ -167,14 +167,14 @@ filterButtons.forEach(btn => {
 
     const filter = btn.dataset.filter;
 
-    // Filter photos
+    // Filter photos - hide non-matching immediately to prevent grid shift
     photoCards.forEach(card => {
       if (filter === 'all' || card.dataset.category === filter) {
         card.style.display = 'block';
         setTimeout(() => card.style.opacity = '1', 10);
       } else {
+        card.style.display = 'none';
         card.style.opacity = '0';
-        setTimeout(() => card.style.display = 'none', 300);
       }
     });
   });
