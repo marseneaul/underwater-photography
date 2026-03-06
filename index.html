@@ -125,18 +125,17 @@
             <label for="digitalSize">Resolution</label>
             <select id="digitalSize" class="option-select">
               <option value="web" data-price="15">Web Resolution (1920px) - $15</option>
-              <option value="standard" data-price="35">Standard (4000px) - $35</option>
-              <option value="full" data-price="75">Full Resolution - $75</option>
+              <option value="full" data-price="50">Full Resolution - $50</option>
             </select>
           </div>
 
           <div class="option-group" id="printOptions" style="display: none;">
-            <label for="printSize">Print Size</label>
+            <label for="printSize">Metal Print Size</label>
             <select id="printSize" class="option-select">
-              <option value="8x10" data-price="45">8x10" - $45</option>
-              <option value="11x14" data-price="75">11x14" - $75</option>
-              <option value="16x20" data-price="125">16x20" - $125</option>
-              <option value="24x36" data-price="225">24x36" - $225</option>
+              <option value="8x8" data-price="95">8x8" Metal Print - $95</option>
+              <option value="12x12" data-price="150">12x12" Metal Print - $150</option>
+              <option value="16x16" data-price="225">16x16" Metal Print - $225</option>
+              <option value="24x24" data-price="375">24x24" Metal Print - $375</option>
             </select>
           </div>
 
@@ -173,6 +172,7 @@
     </div>
   </footer>
 
+  <script src="https://js.stripe.com/v3/"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

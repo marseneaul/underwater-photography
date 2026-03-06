@@ -279,7 +279,7 @@ function updatePrice() {
     price = selected.dataset.price || 15;
   } else if (productType && productType.value === 'print' && printSize) {
     const selected = printSize.options[printSize.selectedIndex];
-    price = selected.dataset.price || 45;
+    price = selected.dataset.price || 95;
   }
 
   if (currentPrice) {
@@ -291,12 +291,23 @@ function updatePrice() {
 // Stripe Checkout Integration
 // ============================================
 
-// IMPORTANT: Replace with your Stripe publishable key
-// Get this from your Stripe Dashboard > Developers > API keys
-const STRIPE_PUBLISHABLE_KEY = 'pk_test_XXXXXXXXXXXXXXXXXXXXXX';
+const STRIPE_PUBLISHABLE_KEY = 'pk_test_51SroxKRo1BLgunVDEjJaTJte7cRWlHBHBGP6VBY3Kb3fYUiXtaR4yhP435d4itkgmioPeKqrr1hIWmT4L11YrB0l00BZduxMQW';
 
-// Initialize Stripe (uncomment when you have your key)
-// const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+
+// Shared price IDs (same for all photos)
+const priceIds = {
+  digital: {
+    web: 'price_1T7nu7Ro1BLgunVD0oMyohCM',
+    full: 'price_1T7nxgRo1BLgunVDtjWfPJgW'
+  },
+  print: {
+    '8x8': 'price_1T7nyTRo1BLgunVD5qltaAT9',
+    '12x12': 'price_1T7nyrRo1BLgunVDxwJWcWoB',
+    '16x16': 'price_1T7nzKRo1BLgunVDvlc5vrB3',
+    '24x24': 'price_1T7nzhRo1BLgunVD3jWn7ouz'
+  }
+};
 
 if (buyButton) {
   buyButton.addEventListener('click', async () => {
@@ -305,32 +316,16 @@ if (buyButton) {
     const photo = photoData[currentPhotoId];
     const type = productType.value;
     let priceId = null;
-    let size = null;
 
     // Get the appropriate Stripe Price ID
     if (type === 'digital') {
-      size = digitalSize.value;
-      priceId = photo.prices?.digital?.[size];
+      priceId = priceIds.digital[digitalSize.value];
     } else {
-      size = printSize.value;
-      priceId = photo.prices?.print?.[size];
+      priceId = priceIds.print[printSize.value];
     }
 
-    // Check if Stripe is configured
-    if (!priceId || priceId.includes('XXXXXX')) {
-      // For demo purposes - show setup instructions
-      alert(
-        'Stripe checkout is not yet configured.\n\n' +
-        'To enable purchases:\n' +
-        '1. Create a Stripe account at stripe.com\n' +
-        '2. Add your photos as Products in Stripe Dashboard\n' +
-        '3. Replace the Price IDs in js/main.js\n' +
-        '4. Replace the Stripe publishable key\n\n' +
-        'Selected: ' + photo.title + '\n' +
-        'Type: ' + type + '\n' +
-        'Size: ' + size + '\n' +
-        'Price: $' + currentPrice.textContent
-      );
+    if (!priceId) {
+      alert('Unable to process this option. Please try a different selection.');
       return;
     }
 
