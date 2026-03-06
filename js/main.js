@@ -293,7 +293,7 @@ function updatePrice() {
 
 const STRIPE_PUBLISHABLE_KEY = 'pk_test_51SroxKRo1BLgunVDEjJaTJte7cRWlHBHBGP6VBY3Kb3fYUiXtaR4yhP435d4itkgmioPeKqrr1hIWmT4L11YrB0l00BZduxMQW';
 
-const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+const stripe = typeof Stripe !== 'undefined' ? Stripe(STRIPE_PUBLISHABLE_KEY) : null;
 
 // Shared price IDs (same for all photos)
 const priceIds = {
@@ -324,8 +324,8 @@ if (buyButton) {
       priceId = priceIds.print[printSize.value];
     }
 
-    if (!priceId) {
-      alert('Unable to process this option. Please try a different selection.');
+    if (!priceId || !stripe) {
+      alert('Unable to process checkout. Please try again.');
       return;
     }
 
