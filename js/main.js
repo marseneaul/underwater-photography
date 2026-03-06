@@ -291,21 +291,17 @@ function updatePrice() {
 // Stripe Checkout Integration
 // ============================================
 
-const STRIPE_PUBLISHABLE_KEY = 'pk_test_51SroxKRo1BLgunVDEjJaTJte7cRWlHBHBGP6VBY3Kb3fYUiXtaR4yhP435d4itkgmioPeKqrr1hIWmT4L11YrB0l00BZduxMQW';
-
-const stripe = typeof Stripe !== 'undefined' ? Stripe(STRIPE_PUBLISHABLE_KEY) : null;
-
-// Shared price IDs (same for all photos)
-const priceIds = {
+// Stripe Payment Links
+const paymentLinks = {
   digital: {
-    web: 'price_1T7nu7Ro1BLgunVD0oMyohCM',
-    full: 'price_1T7nxgRo1BLgunVDtjWfPJgW'
+    web: 'https://buy.stripe.com/test_9B628tdvwbKT8fi4tc4ko04',
+    full: 'https://buy.stripe.com/test_7sY6oJ1MO8yHeDG1h04ko05'
   },
   print: {
-    '8x8': 'price_1T7nyTRo1BLgunVD5qltaAT9',
-    '12x12': 'price_1T7nyrRo1BLgunVDxwJWcWoB',
-    '16x16': 'price_1T7nzKRo1BLgunVDvlc5vrB3',
-    '24x24': 'price_1T7nzhRo1BLgunVD3jWn7ouz'
+    '8x8': 'https://buy.stripe.com/test_bJe00lfDEg19dzC0cW4ko03',
+    '12x12': 'https://buy.stripe.com/test_bJeeVfajk6qzanqaRA4ko02',
+    '16x16': 'https://buy.stripe.com/test_00weVfgHIcOX8fi4tc4ko01',
+    '24x24': 'https://buy.stripe.com/test_4gMaEZcrs02bdzC2l44ko00'
   }
 };
 
@@ -313,45 +309,21 @@ if (buyButton) {
   buyButton.addEventListener('click', async () => {
     if (!currentPhotoId) return;
 
-    const photo = photoData[currentPhotoId];
     const type = productType.value;
-    let priceId = null;
+    let link = null;
 
-    // Get the appropriate Stripe Price ID
     if (type === 'digital') {
-      priceId = priceIds.digital[digitalSize.value];
+      link = paymentLinks.digital[digitalSize.value];
     } else {
-      priceId = priceIds.print[printSize.value];
+      link = paymentLinks.print[printSize.value];
     }
 
-    if (!priceId || !stripe) {
+    if (!link) {
       alert('Unable to process checkout. Please try again.');
       return;
     }
 
-    // Redirect to Stripe Checkout
-    try {
-      buyButton.disabled = true;
-      buyButton.textContent = 'Redirecting...';
-
-      const { error } = await stripe.redirectToCheckout({
-        lineItems: [{ price: priceId, quantity: 1 }],
-        mode: 'payment',
-        successUrl: window.location.origin + '/success.html',
-        cancelUrl: window.location.href,
-      });
-
-      if (error) {
-        console.error('Stripe error:', error);
-        alert('Something went wrong. Please try again.');
-      }
-    } catch (err) {
-      console.error('Checkout error:', err);
-      alert('Unable to process checkout. Please try again.');
-    } finally {
-      buyButton.disabled = false;
-      buyButton.textContent = 'Buy Now';
-    }
+    window.location.href = link;
   });
 }
 
