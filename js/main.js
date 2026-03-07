@@ -294,14 +294,14 @@ function updatePrice() {
 // Stripe Payment Links
 const paymentLinks = {
   digital: {
-    web: 'https://buy.stripe.com/test_9B628tdvwbKT8fi4tc4ko04',
-    full: 'https://buy.stripe.com/test_7sY6oJ1MO8yHeDG1h04ko05'
+    web: 'https://buy.stripe.com/4gM9AM1f00cFfaVeyeg7e01',
+    full: 'https://buy.stripe.com/4gM28ke1Mf7zd2N4XEg7e00'
   },
   print: {
-    '8x8': 'https://buy.stripe.com/test_bJe00lfDEg19dzC0cW4ko03',
-    '12x12': 'https://buy.stripe.com/test_bJeeVfajk6qzanqaRA4ko02',
-    '16x16': 'https://buy.stripe.com/test_00weVfgHIcOX8fi4tc4ko01',
-    '24x24': 'https://buy.stripe.com/test_4gMaEZcrs02bdzC2l44ko00'
+    '8x8': 'https://buy.stripe.com/fZubIUg9U7F78Mxeyeg7e02',
+    '12x12': 'https://buy.stripe.com/7sYeV63n87F77ItahYg7e03',
+    '16x16': 'https://buy.stripe.com/9B65kw1f0f7z1k53TAg7e04',
+    '24x24': 'https://buy.stripe.com/00w9AMcXIbVngeZ89Qg7e05'
   }
 };
 
